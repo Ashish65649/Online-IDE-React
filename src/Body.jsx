@@ -7,14 +7,13 @@ let obj = {
 }
 
 function Body() {
-
     return (
         <>
             <div className="body">
                 <div id="editor"></div>
                 <div className="inp-out">
-                    <textarea id="input" placeholder="Enter input here..." style={obj}></textarea>
-                    <textarea id="output" readOnly style={obj} placeholder="Output..." style={obj}></textarea>
+                    <textarea id="input" style={obj} placeholder="Enter input here..."></textarea>
+                    <textarea id="output" style={obj} placeholder="Output..." readOnly={true}></textarea>
                 </div>
             </div>
         </>

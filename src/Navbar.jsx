@@ -6,6 +6,8 @@ function getCode() {
     if(code.trim().length === 0) {
         return false;
     }
+    document.querySelector('.btn').style.width = '7rem';
+    document.querySelector('.btn').innerHTML = 'Running';
     var version = '0';
     var input = document.querySelector('#input').value;
     var lang = document.querySelector('#languages').value;
@@ -35,6 +37,8 @@ function getCode() {
         body: JSON.stringify(obj)
     }).then(response => response.json()).then(data => {
         document.querySelector('#output').value = data.output ;
+        document.querySelector('.btn').style.width = '5rem';
+        document.querySelector('.btn').innerHTML = 'Run';
     }).catch(error => console.log(error.message))
 }
 

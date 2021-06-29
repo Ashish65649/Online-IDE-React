@@ -1,0 +1,22 @@
+.body {
+    display: flex;
+    flex-direction: row;
+}
+
+.inp-out {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.body > #code {
+    width: 70%;
+    min-height: 92.6vh;
+    resize: vertical;
+    overflow-y: auto;
+}
+
+.inp-out > textarea {
+    height: 50%;
+    resize: none;
+}

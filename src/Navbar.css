@@ -1,0 +1,50 @@
+.navbar {
+    width: 100%;
+    background-color: rgb(67, 176, 226);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    color: white;
+    font-size: 27px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    width: 5rem;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    color: red;
+    font-size: 1.3rem;
+    font-variant: small-caps;
+    position: absolute;
+    left: 47.5%;
+    align-self: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    width: 7rem;
+    right: 2%;
+    align-self: center;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    appearance: none;
+}
+
+.btn:hover {
+    background: #f44336;
+    color: white;
+}

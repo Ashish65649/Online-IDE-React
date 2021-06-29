@@ -1,7 +1,8 @@
 .body {
     display: flex;
     flex-direction: row;
-    min-height: 93.2vh;
+    min-height: 91vh;
+    max-height: 91vh;
 }
 
 .inp-out {
@@ -13,8 +14,7 @@
 .body > #editor {
     font-size: 1rem;
     width: 70%;
-    resize: vertical;
-    overflow-y: auto;
+    resize: none;
     border-right: 3px solid black;
 }
 
@@ -24,13 +24,22 @@
 
 #output {
     border-top: 1px solid black;
+    overflow: auto;
 }
 
-.inp-out > textarea {
+textarea , #output {
     background-color: #2E2E2E;
     color: white;
-    height: 50%;
+    height: 48%;
     resize: none;
     border: none;
     outline: none;
+}
+
+.inp-out > p {
+    padding: 0.5rem;
+    color : white;
+    font-size: 1rem;
+    font-family: 'Verdana';
+    background-color: #272727;
 }

@@ -36,7 +36,7 @@ function getCode() {
         },
         body: JSON.stringify(obj)
     }).then(response => response.json()).then(data => {
-        document.querySelector('#output').value = data.output ;
+        document.querySelector('#foutput').innerHTML = data.output ;
         document.querySelector('.btn').style.width = '5rem';
         document.querySelector('.btn').innerHTML = 'Run';
     }).catch(error => console.log(error.message))

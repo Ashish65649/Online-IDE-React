@@ -12,8 +12,12 @@ function Body() {
             <div className="body">
                 <div id="editor"></div>
                 <div className="inp-out">
+                    <p> Input </p>
                     <textarea id="input" style={obj} placeholder="Enter input here..."></textarea>
-                    <textarea id="output" style={obj} placeholder="Output..." readOnly={true}></textarea>
+                    <p> Output </p>
+                    <div id="output" style={obj}>
+                        <pre id="foutput"> </pre>
+                    </div>
                 </div>
             </div>
         </>

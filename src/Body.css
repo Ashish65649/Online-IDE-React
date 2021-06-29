@@ -1,6 +1,7 @@
 .body {
     display: flex;
     flex-direction: row;
+    min-height: 93.2vh;
 }
 
 .inp-out {
@@ -9,14 +10,27 @@
     width: 30%;
 }
 
-.body > #code {
+.body > #editor {
+    font-size: 1rem;
     width: 70%;
-    min-height: 92.6vh;
     resize: vertical;
     overflow-y: auto;
+    border-right: 3px solid black;
+}
+
+#input {
+    border-bottom: 1px solid black;
+}
+
+#output {
+    border-top: 1px solid black;
 }
 
 .inp-out > textarea {
+    background-color: #2E2E2E;
+    color: white;
     height: 50%;
     resize: none;
+    border: none;
+    outline: none;
 }

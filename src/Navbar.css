@@ -2,15 +2,17 @@
     width: 100%;
     background-color: rgb(67, 176, 226);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: relative;
+    position: sticky;
     display: flex;
     flex-direction: row;
+    top: 0;
 }
 
 .title {
     color: white;
     font-size: 27px;
     padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
 }
 
@@ -28,11 +30,12 @@
     align-self: center;
     padding: 8px;
     cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
 }
 
 .dropdown {
     position: absolute;
-    width: 5.7rem;
+    width: 5.8rem;
     right: 2%;
     align-self: center;
     padding: 0.5rem;

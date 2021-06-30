@@ -55,7 +55,7 @@ function Body() {
                         <i onClick={download} style={{position: 'absolute',right:'2.2rem'}} className="fa fa-download crs" aria-hidden="true"></i>
                     </div>
                     <div id="output" style={obj}>
-                        <pre id="foutput"> </pre>
+                        <pre id="foutput"></pre>
                     </div>
                 </div>
             </div>

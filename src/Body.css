@@ -36,7 +36,12 @@ textarea , #output {
     outline: none;
 }
 
-.inp-out > p {
+.crs {
+    cursor: pointer;
+}
+
+.inp-out > #inp,#out {
+    position: relative;
     padding: 0.5rem;
     color : white;
     font-size: 1rem;

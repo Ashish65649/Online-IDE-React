@@ -27,6 +27,11 @@
     overflow: auto;
 }
 
+.small {
+    color: white;
+    font-size: 0.9rem;
+}
+
 textarea , #output {
     background-color: #2E2E2E;
     color: white;

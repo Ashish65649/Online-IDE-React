@@ -60,15 +60,15 @@ function Body() {
                 <div className="inp-out">
                     <div id="inp"> 
                         <span> Input </span>
-                        <i onClick={() => { func('#input') }} style={{position: 'absolute',right:'0.8rem'}} className="fas fa-copy crs"></i>
-                        <i onClick={ triggerFileExplorer } style={{position: 'absolute',right:'2.8rem'}} className="fa fa-folder-open crs" aria-hidden="true"></i>
-                        <input type="file" onChange={event => loadFile(event)} style={{display: 'none'}}/>
+                        <i onClick={() => { func('#input') }} style={{position: 'absolute',right:'0.8rem'}} className="fas fa-copy crs small"></i>
+                        <i onClick={ triggerFileExplorer } style={{position: 'absolute',right:'2.8rem'}} className="fa fa-folder-open crs small" aria-hidden="true"></i>
+                        <input accept="text/plain" type="file" onChange={event => loadFile(event)} style={{display: 'none'}}/>
                     </div>
                     <textarea type="text" id="input" style={obj} placeholder="Enter input here..."></textarea>
                     <div id="out"> 
-                        <span>Output</span>
-                        <i onClick={() => { func('#output') }} style={{position: 'absolute',right:'0.8rem'}} className="fas fa-copy crs"></i>
-                        <i onClick={download} style={{position: 'absolute',right:'2.8rem'}} className="fa fa-download crs" aria-hidden="true"></i>
+                        <span className="small"> Output : </span>
+                        <i onClick={() => { func('#output') }} style={{position: 'absolute',right:'0.8rem'}} className="fas fa-copy crs small"></i>
+                        <i onClick={download} style={{position: 'absolute',right:'2.8rem'}} className="fa fa-download crs small" aria-hidden="true"></i>
                     </div>
                     <div id="output" style={obj}>
                         <pre id="foutput"></pre>

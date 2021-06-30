@@ -36,7 +36,13 @@ function getCode() {
         },
         body: JSON.stringify(obj)
     }).then(response => response.json()).then(data => {
-        document.querySelector('#foutput').innerHTML = data.output ;
+        console.log(data)
+        if(data.memory === null && data.cpuTime === null) {
+            data.memory = 0
+            data.cpuTime = 0
+        }
+        let memTime = '\n[Memory: ' + data.memory + ' kb] [cpuTime: ' + data.cpuTime + ' ms]';
+        document.querySelector('#foutput').innerHTML = data.output + memTime;
         document.querySelector('.btn').style.width = '5rem';
         document.querySelector('.btn').innerHTML = 'Run';
     }).catch(error => console.log(error.message))
@@ -58,6 +64,7 @@ function Navbar() {
                     <option value="python">Python</option>
                     <option value="javascript">Javascript</option>
                 </select>
+                <i className="fa fa-cog settings" aria-hidden="true"></i>
             </div>
         </React.Fragment>
     );

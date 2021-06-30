@@ -23,6 +23,20 @@ function func(containerid) {
     }  
 }
 
+function triggerFileExplorer() {
+    var obj = document.querySelector('#inp > input');
+    // Triggering hidden input for reading file.
+    obj.click();
+}
+
+function loadFile(event) {
+    var fr = new FileReader();
+    fr.onload = function() {
+        document.querySelector('#input').value = fr.result ;
+    }
+    fr.readAsText(event.target.files[0]);
+}
+
 function download() {
     let text = document.querySelector('#foutput').innerHTML ;
     let fileName = 'output.txt';
@@ -45,8 +59,8 @@ function Body() {
                     <div id="inp"> 
                         <span> Input </span>
                         <i onClick={() => { func('#input') }} style={{position: 'absolute',right:'0.8rem'}} className="fas fa-copy crs"></i>
-                        <i style={{position: 'absolute',right:'2.8rem'}} className="fa fa-folder-open crs" aria-hidden="true"></i>
-                        <input type="file" style={{display: 'none'}}/>
+                        <i onClick={ triggerFileExplorer } style={{position: 'absolute',right:'2.8rem'}} className="fa fa-folder-open crs" aria-hidden="true"></i>
+                        <input type="file" onChange={event => loadFile(event)} style={{display: 'none'}}/>
                     </div>
                     <textarea type="text" id="input" style={obj} placeholder="Enter input here..."></textarea>
                     <div id="out"> 

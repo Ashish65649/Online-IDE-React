@@ -1,6 +1,8 @@
 .navbar {
     width: 100%;
-    background-color: rgb(67, 176, 226);
+    /* #365263 */
+    /* rgb(67, 176, 226); */
+    background-color: #365263;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: sticky;
     display: flex;
@@ -30,22 +32,28 @@
     align-self: center;
     padding: 8px;
     cursor: pointer;
-    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
 }
 
-.settings {
+/* .settings {
     position: absolute;
     cursor: pointer;
     color: white;
     align-self: center;
     font-size: 1.7rem;
     right: 1rem;
+} */
+
+input[type=range] {
+    position: absolute;
+    align-self: center;
+    right: 8rem;
+    color: #f44336;
 }
 
 .dropdown {
     position: absolute;
     width: 5.8rem;
-    right: 4rem;
+    right: 1.5rem;
     align-self: center;
     padding: 0.5rem;
     cursor: pointer;

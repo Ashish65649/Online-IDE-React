@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 
 function getCode() {
@@ -49,10 +49,20 @@ function getCode() {
 }
 
 function Navbar() {
+
+    const [value,setValue] = useState("16");
+
+    function range(event) {
+        setValue(event.target.value);
+        let font = document.querySelector('input').value / 16 ;
+        document.querySelector('#editor').style.fontSize = font + 'rem';
+    }    
+
     return (
         <React.Fragment>
             <div className="navbar">
                 <p className="title"> OnlineIDE </p>
+                <input onInput={range} type="range" min="12" max="30" value={value} step="1"/>
                 <button className="btn" onClick={() => { getCode() }}>Run</button>
                 <select id="languages" className="dropdown" onChange={(event) => {
                         var v = document.getElementById('languages').value;
@@ -64,7 +74,7 @@ function Navbar() {
                     <option value="python">Python</option>
                     <option value="javascript">Javascript</option>
                 </select>
-                <i className="fa fa-cog settings" aria-hidden="true"></i>
+                {/* <i className="fa fa-cog settings" aria-hidden="true"></i> */}
             </div>
         </React.Fragment>
     );

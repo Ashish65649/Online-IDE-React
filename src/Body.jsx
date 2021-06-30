@@ -39,15 +39,17 @@ function loadFile(event) {
 
 function download() {
     let text = document.querySelector('#foutput').innerHTML ;
-    let fileName = 'output.txt';
-    var element = document.createElement('a');
-    element.setAttribute('href','data:text/plain;charset=utf-8,'+encodeURIComponent(text));
-    element.setAttribute('download',fileName);
-    element.setAttribute('target','_blank');
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    if(text.length > 0) {
+        let fileName = 'output.txt';
+        var element = document.createElement('a');
+        element.setAttribute('href','data:text/plain;charset=utf-8,'+encodeURIComponent(text));
+        element.setAttribute('download',fileName);
+        element.setAttribute('target','_blank');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    }
 }
 
 function Body() {

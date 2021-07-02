@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
+import javaCode , {py , js , c , cpp} from './DummyCodes';
 
 function getCode() {
     var code = window.editor.getSession().getValue();
@@ -11,8 +12,11 @@ function getCode() {
     var version = '0';
     var input = document.querySelector('#input').value;
     var lang = document.querySelector('#languages').value;
-    if(lang.trim() === 'c_cpp') {
-        lang = 'cpp'; 
+    if(lang.trim() === 'c') {
+        lang = 'c'; 
+    }
+    else if(lang.trim() === 'cpp') {
+        lang = 'cpp';
     }
     else if(lang.trim() === 'python'){
         lang = 'python3';
@@ -52,11 +56,33 @@ function Navbar() {
 
     const [value,setValue] = useState("16");
 
+    useEffect(() => {
+        window.editor.setValue(c);
+    }, []);
+
     function range(event) {
         setValue(event.target.value);
         let font = document.querySelector('input').value / 16 ;
         document.querySelector('#editor').style.fontSize = font + 'rem';
-    }    
+    }   
+    
+    function sampleCode(language) {
+        if(language === 'java') {
+            window.editor.setValue(javaCode);
+        }
+        else if(language === 'python') {
+            window.editor.setValue(py);
+        }
+        else if(language === 'javascript') {
+            window.editor.setValue(js);
+        }
+        else if(language === 'c') {
+            window.editor.setValue(c);
+        }
+        else if(language === 'cpp') {
+            window.editor.setValue(cpp);
+        }
+    }
 
     return (
         <React.Fragment>
@@ -66,10 +92,14 @@ function Navbar() {
                 <button className="btn" onClick={() => { getCode() }}>Run</button>
                 <select id="languages" className="dropdown" onChange={(event) => {
                         var v = document.getElementById('languages').value;
+                        sampleCode(v);
+                        if(v === 'c' || v === 'cpp') {
+                            v = 'c_cpp';
+                        }
                         window.editor.session.setMode("ace/mode/" + v);
                     }}>
-                    <option value="c_cpp">C</option>
-                    <option value="c_cpp">C++</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
                     <option value="java">Java</option>
                     <option value="python">Python</option>
                     <option value="javascript">Javascript</option>

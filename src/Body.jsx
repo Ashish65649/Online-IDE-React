@@ -65,12 +65,12 @@ function Body() {
     return (
         <>
             <div className="body">
-                {/* <div className="tab-text"> 
+                <div className="tab-text"> 
                     <i onClick={() => { copy('#editor')}} className="fas fa-copy crs small"></i>
                     <i onClick={() => { download('#editor')}} className="fa fa-download crs small" aria-hidden="true"></i>
                     <i onClick={() => { triggerFileExplorer('.tab-text > input')}} className="fa fa-folder-open crs small" aria-hidden="true"></i>
                     <input accept="text/plain" type="file" onChange={event => loadFile(event,'.tab-text > input')} style={{display: 'none'}}/>
-                </div> */}
+                </div>
                 <div id="editor"></div>
                 <div className="inp-out">
                     <div id="inp"> 

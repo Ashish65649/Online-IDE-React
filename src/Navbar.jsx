@@ -45,7 +45,7 @@ function getCode() {
             data.memory = 0
             data.cpuTime = 0
         }
-        let memTime = '\n[Memory: ' + data.memory + ' kb] [cpuTime: ' + data.cpuTime + ' ms]';
+        let memTime = '\n\n[Memory: ' + data.memory + ' kb] [cpuTime: ' + data.cpuTime + ' ms]';
         document.querySelector('#foutput').innerHTML = data.output + memTime;
         document.querySelector('.btn').style.width = '5rem';
         document.querySelector('.btn').innerHTML = 'Run';

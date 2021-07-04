@@ -6,15 +6,26 @@ let obj = {
     padding: '5px'
 }
 
+function showToast() {
+    var x = document.getElementById("snackbar");
+    x.classList.add("show");
+    setTimeout(function(){ 
+        x.classList.remove("show"); 
+    }, 3000);
+}
+
 function copy(containerid) {
-    if(containerid === '#editor') {
+    if(containerid === '#editor' && window.editor.getSession().getValue().trim().length !== 0) {
         navigator.clipboard.writeText(window.editor.getSession().getValue());
+        showToast();
     }
-    else if(containerid === '#input') {
+    else if(containerid === '#input' && document.querySelector(containerid).value.trim().length !== 0) {
         navigator.clipboard.writeText(document.querySelector(containerid).value);
+        showToast();
     }
-    else {
+    else if(document.querySelector(containerid).innerHTML.trim().length !== 0) {
         navigator.clipboard.writeText(document.querySelector(containerid).innerHTML);
+        showToast();
     }  
 }
 
@@ -99,6 +110,7 @@ function Body() {
                         <pre id="foutput"></pre>
                     </div>
                 </div>
+                <div id="snackbar">Copied successfully!</div>
             </div>
         </>
     );

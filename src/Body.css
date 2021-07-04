@@ -31,6 +31,36 @@
     align-items: center;
 }
 
+#snackbar {
+    display: none;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #32CD32;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    padding: 16px;
+    position: fixed;
+    right: 0.5rem;
+    top: 3.5rem;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    display: inline-block;
+    animation: fadein 1s, fadeout 1s 2s;
+ }
+ 
+ @keyframes fadein {
+   from {right: 0; opacity: 0;}
+   to {right: 0.5rem; opacity: 1;}
+ }
+ 
+ @keyframes fadeout {
+   from {right: 0.5rem;; opacity: 1;}
+   to {right: 0; opacity: 0;}
+ }
+
 #editor {
     font-size: 1rem;
     width: 70%;

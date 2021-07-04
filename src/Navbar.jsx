@@ -36,11 +36,10 @@ function getCode() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
-            'Accept': 'application/json'
+            'Accept' : 'application/json'
         },
         body: JSON.stringify(obj)
     }).then(response => response.json()).then(data => {
-        console.log(data)
         if(data.memory === null && data.cpuTime === null) {
             data.memory = 0
             data.cpuTime = 0
@@ -54,33 +53,89 @@ function getCode() {
 
 function Navbar() {
 
-    const [value,setValue] = useState("16");
-
     useEffect(() => {
-        window.editor.setValue(c);
-    }, []);
+        
+        setInterval(() => {
+            let currLang = document.querySelector('#languages').value ;
+            sessionStorage.setItem(currLang,window.editor.getSession().getValue());
+        } , 500);
+
+        if(sessionStorage.getItem('currentLang') != null) {
+            let v ;
+            if(sessionStorage.getItem('currentLang') === 'c' || sessionStorage.getItem('currentLang') === 'cpp') {
+                v = 'c_cpp';
+            }
+            else {
+                v = sessionStorage.getItem('currentLang');
+            }
+            if(sessionStorage.getItem('font') != null) {
+                setValue(sessionStorage.getItem('font'));
+                font(sessionStorage.getItem('font')/16);
+            }
+            window.editor.session.setMode("ace/mode/" + v);
+            document.querySelector('#languages').value = sessionStorage.getItem('currentLang');
+            window.editor.setValue(sessionStorage.getItem(sessionStorage.getItem('currentLang')));
+        }
+        else {
+            sessionStorage.setItem('c',c);
+            sessionStorage.setItem('currentLang', 'c');
+            window.editor.setValue(sessionStorage.getItem(sessionStorage.getItem('currentLang')));
+        }
+    } , []);
+
+    const [value,setValue] = useState('16');
+
+    function font(font) {
+        document.querySelector('#editor').style.fontSize = font + 'rem';
+    }
 
     function range(event) {
+        sessionStorage.setItem('font' , event.target.value);
         setValue(event.target.value);
-        let font = document.querySelector('input').value / 16 ;
-        document.querySelector('#editor').style.fontSize = font + 'rem';
+        font(event.target.value / 16);
     }   
-    
-    function sampleCode(language) {
+
+    function sampleCode(language , prevLang) {
+
         if(language === 'java') {
-            window.editor.setValue(javaCode);
+            if(sessionStorage.getItem('java') != null) {
+                window.editor.setValue(sessionStorage.getItem('java'));
+            }
+            else {
+                window.editor.setValue(javaCode);
+            }
         }
         else if(language === 'python') {
-            window.editor.setValue(py);
+            if(sessionStorage.getItem('python') != null) {
+                window.editor.setValue(sessionStorage.getItem('python'));
+            }
+            else {
+                window.editor.setValue(py);
+            }
         }
         else if(language === 'javascript') {
-            window.editor.setValue(js);
+            if(sessionStorage.getItem('javascript') != null) {
+                window.editor.setValue(sessionStorage.getItem('javascript'));
+            }
+            else {
+                window.editor.setValue(js);
+            }
         }
         else if(language === 'c') {
-            window.editor.setValue(c);
+            if(sessionStorage.getItem('c') != null) {
+                window.editor.setValue(sessionStorage.getItem('c'));
+            }
+            else {
+                window.editor.setValue(c);
+            }
         }
         else if(language === 'cpp') {
-            window.editor.setValue(cpp);
+            if(sessionStorage.getItem('cpp') != null) {
+                window.editor.setValue(sessionStorage.getItem('cpp'));
+            }
+            else {
+                window.editor.setValue(cpp);
+            }
         }
     }
 
@@ -90,9 +145,12 @@ function Navbar() {
                 <p className="title"> OnlineIDE </p>
                 <input onInput={range} type="range" min="12" max="30" value={value} step="1"/>
                 <button className="btn" onClick={() => { getCode() }}>Run</button>
-                <select id="languages" className="dropdown" onChange={(event) => {
+                <select id="languages" className="dropdown" data-prev='c' onChange={(event) => {
+                        var prevLang = document.querySelector('#languages').dataset.prev ;
                         var v = document.getElementById('languages').value;
-                        sampleCode(v);
+                        sessionStorage.setItem('currentLang' , v);
+                        document.querySelector('#languages').dataset.prev = v ;
+                        sampleCode(v,prevLang);
                         if(v === 'c' || v === 'cpp') {
                             v = 'c_cpp';
                         }

@@ -1,12 +1,12 @@
 var javaCode = `public class Main {
     public static void main(String [] args) {
-        System.out.println("Hello World");
+        System.out.print("Hello World");
     }
 }`;
 
-var pythonCode = `print('Hello World')`
+var pythonCode = `print('Hello World' , end=" ");`
 
-var javaScriptCode = `console.log('Hello World')`
+var javaScriptCode = `console.log('Hello World');`
 
 var cCode = `#include<stdio.h>
 

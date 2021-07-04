@@ -142,7 +142,7 @@ function Navbar() {
         <React.Fragment>
             <div className="navbar">
                 <p className="title"> OnlineIDE </p>
-                <input  onInput={range} type="range" min="12" max="30" value={value} step="1"/>
+                <input style={{outline: '0'}} onInput={range} type="range" min="12" max="30" value={value} step="1"/>
                 <button className="btn" onClick={() => { getCode() }}>Run</button>
                 <select id="languages" className="dropdown" data-prev='c' onChange={(event) => {
                         var prevLang = document.querySelector('#languages').dataset.prev ;

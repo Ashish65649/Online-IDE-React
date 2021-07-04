@@ -54,7 +54,6 @@ function getCode() {
 function Navbar() {
 
     useEffect(() => {
-        
         setInterval(() => {
             let currLang = document.querySelector('#languages').value ;
             sessionStorage.setItem(currLang,window.editor.getSession().getValue());

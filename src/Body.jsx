@@ -84,9 +84,9 @@ function Body() {
                 <div className="inp-out">
                     <div id="inp"> 
                         <span> Input </span>
-                        <i className="fa fa-ellipsis-v crs small" style={{position: 'absolute',right:'0.8rem'}} aria-hidden="true"></i>
-                        <i onClick={() => { copy('#input') }} style={{position: 'absolute',right:'2.6rem'}} className="fas fa-copy crs small"></i>
-                        <i onClick={() => { triggerFileExplorer('#inp > input') } } style={{position: 'absolute',right:'4.8rem'}} className="fa fa-folder-open crs small" aria-hidden="true"></i>
+                        {/* <i className="fa fa-ellipsis-v crs small" style={{position: 'absolute',right:'0.8rem'}} aria-hidden="true"></i> */}
+                        <i onClick={() => { copy('#input') }} style={{position: 'absolute',right:'0.8rem'}} className="fas fa-copy crs small"></i>
+                        <i onClick={() => { triggerFileExplorer('#inp > input') } } style={{position: 'absolute',right:'2.8rem'}} className="fa fa-folder-open crs small" aria-hidden="true"></i>
                         <input accept="text/plain" type="file" onChange={event => loadFile(event ,'#inp > input')} style={{display: 'none'}}/>
                     </div>
                     <textarea type="text" id="input" style={obj} placeholder="Enter input here..."></textarea>

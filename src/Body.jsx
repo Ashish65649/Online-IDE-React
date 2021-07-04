@@ -85,10 +85,10 @@ function Body() {
                     <span onClick={() => { copy('#editor')}} className="fas fa-copy crs small"></span>
                     <i onClick={() => { download('#editor')}} className="fa fa-download crs small" aria-hidden="true"></i>
                     <i onClick={() => { triggerFileExplorer('.tab-text > input')}} className="fa fa-folder-open crs small" aria-hidden="true"></i>
-                    <span style={{borderBottom : '1px solid white' , marginTop: '1rem'}}> Ln </span>
-                    <span id="line-no">1</span>
-                    <span style={{borderBottom : '1px solid white' , marginTop: '1rem'}}> Col </span>
-                    <span id="col-no">1</span>
+                    <span style={{borderBottom : '1px solid white' , marginTop: '1rem' ,fontSize: '0.9rem'}}> Ln </span>
+                    <span id="line-no" style={{fontSize: '0.9rem'}}>1</span>
+                    <span style={{borderBottom : '1px solid white' , marginTop: '1rem' ,fontSize: '0.9rem'}}> Col </span>
+                    <span id="col-no" style={{fontSize: '0.9rem'}}>1</span>
                     <input accept="text/plain" type="file" onChange={event => loadFile(event,'.tab-text > input')} style={{display: 'none'}}/>
                 </div>
                 <div id="editor" onMouseDown = {(e) => mouseMovement() } onKeyUp = {(e) => mouseMovement() } tabIndex="0"></div>

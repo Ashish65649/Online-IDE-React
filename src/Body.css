@@ -32,10 +32,9 @@
 }
 
 #snackbar {
-    display: none;
+    visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: #32CD32;
     color: white;
     border-radius: 15px;
     text-align: center;
@@ -47,9 +46,9 @@
 }
 
 #snackbar.show {
-    display: inline-block;
-    animation: fadein 1s, fadeout 1s 2s;
- }
+    visibility: visible;
+    animation: fadein 1s, fadeout 1s 2.2s;
+}
  
  @keyframes fadein {
    from {right: 0; opacity: 0;}

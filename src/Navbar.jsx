@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import javaCode , {py , js , c , cpp} from './DummyCodes';
 
+function showToast(msg,color) {
+    var x = document.querySelector("#snackbar");
+    x.innerHTML = msg;
+    x.style.backgroundColor = color;
+    x.setAttribute('class', 'show');
+    setTimeout(function(){
+        x.removeAttribute("class");  
+    }, 3000);
+}
+
 function getCode() {
     var code = window.editor.getSession().getValue();
     if(code.trim().length === 0) {
@@ -43,6 +53,10 @@ function getCode() {
         if(data.memory === null && data.cpuTime === null) {
             data.memory = 0
             data.cpuTime = 0
+            showToast('Compilation Error!' , 'red');            
+        }
+        else {
+            showToast('Execution done!','#32CD32');
         }
         let memTime = '\n\n[Memory: ' + data.memory + ' kb] [cpuTime: ' + data.cpuTime + ' ms]';
         document.querySelector('#foutput').innerHTML = data.output + memTime;

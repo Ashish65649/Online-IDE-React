@@ -7,10 +7,12 @@ let obj = {
 }
 
 function showToast() {
-    var x = document.getElementById("snackbar");
-    x.classList.add("show");
+    var x = document.querySelector("#snackbar");
+    x.style.backgroundColor = '#32CD32';
+    x.innerHTML = 'Copied successfully!';
+    x.setAttribute('class', 'show');
     setTimeout(function(){ 
-        x.classList.remove("show"); 
+        x.removeAttribute("class");
     }, 3000);
 }
 
@@ -110,7 +112,7 @@ function Body() {
                         <pre id="foutput"></pre>
                     </div>
                 </div>
-                <div id="snackbar">Copied successfully!</div>
+                <div id="snackbar"></div>
             </div>
         </>
     );

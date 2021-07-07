@@ -23,5 +23,28 @@ int main(int argc, char *argv[]) {
     return 0;
 }`
 
+let languages = [
+    {
+        value: 'c',
+        lang : 'C'
+    },
+    {
+        value: 'cpp',
+        lang : 'C++'
+    },
+    {
+        value: 'java',
+        lang : 'Java'
+    },
+    {
+        value: 'python',
+        lang : 'Python'
+    },
+    {
+        value: 'javascript',
+        lang : 'Javascript'
+    }
+]
+
 export default javaCode ;
-export {pythonCode as py , javaScriptCode as js , cCode as c , cppCode as cpp} ;
+export {pythonCode as py , javaScriptCode as js , cCode as c , cppCode as cpp , languages as langs} ;

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
-import javaCode , {py , js , c , cpp} from './DummyCodes';
+import javaCode , {py , js , c , cpp , langs} from './DummyCodes';
+
+function Lang(lang,index) {
+        let option = <option key={index} value={lang.value}> {lang.lang} </option>
+        return option;
+}
 
 function showToast(msg,color) {
     var x = document.querySelector("#snackbar");
@@ -169,11 +174,7 @@ function Navbar() {
                         }
                         window.editor.session.setMode("ace/mode/" + v);
                     }}>
-                    <option value="c">C</option>
-                    <option value="cpp">C++</option>
-                    <option value="java">Java</option>
-                    <option value="python">Python</option>
-                    <option value="javascript">Javascript</option>
+                    {langs.map(Lang)}
                 </select>
                 {/* <i className="fa fa-cog settings" aria-hidden="true"></i> */}
             </div>

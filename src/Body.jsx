@@ -6,10 +6,10 @@ let obj = {
     padding: '5px'
 }
 
-function showToast() {
+function showToast(msg,color) {
     var x = document.querySelector("#snackbar");
-    x.style.backgroundColor = '#32CD32';
-    x.innerHTML = 'Copied successfully!';
+    x.style.backgroundColor = color;
+    x.innerHTML = msg;
     x.setAttribute('class', 'show');
     setTimeout(function(){ 
         x.removeAttribute("class");
@@ -18,36 +18,77 @@ function showToast() {
 
 function copy(containerid) {
     if(containerid === '#editor' && window.editor.getSession().getValue().trim().length !== 0) {
+        showToast('Copied successfully!' ,'#32CD32');
         navigator.clipboard.writeText(window.editor.getSession().getValue());
-        showToast();
     }
     else if(containerid === '#input' && document.querySelector(containerid).value.trim().length !== 0) {
+        showToast('Copied successfully!' ,'#32CD32');
         navigator.clipboard.writeText(document.querySelector(containerid).value);
-        showToast();
     }
     else if(document.querySelector(containerid).innerHTML.trim().length !== 0) {
+        showToast('Copied successfully!' ,'#32CD32');
         navigator.clipboard.writeText(document.querySelector(containerid).innerHTML);
-        showToast();
-    }  
+    } 
+    else {
+        showToast('Nothing to copy!' ,'red');
+    }
 }
 
 function triggerFileExplorer(containerid) {
     var obj = document.querySelector(containerid);
-    // Triggering hidden input for reading file.
     obj.click();
 }
 
 function loadFile(event,id) {
     var fr = new FileReader();
-
+    let fName ;
     fr.addEventListener('loadend' , function() {
         if(id === '#inp > input')
             document.querySelector('#input').value = fr.result ;
-        else
-            window.editor.setValue(fr.result) ;
+        else {
+            let extension = fName.split('.').pop();
+            let lang ;
+            let flag = 0;
+            if(extension === 'js') {
+                flag = 1;
+                lang = 'javascript';
+                extension = 'javascript';
+            }
+            else if(extension === 'py') {
+                flag = 1;
+                lang = 'python';
+                extension = 'python';
+            }
+            else if(extension === 'java') {
+                flag = 1;
+                lang = 'java';
+            }
+            else if(extension === 'c') {
+                flag = 1;
+                lang = 'c';
+                extension = 'c_cpp';
+            }
+            else if(extension === 'cpp') {
+                flag = 1;
+                lang = 'cpp';
+                extension = 'c_cpp';
+            }
+            if(flag === 1) {
+                showToast(`${lang} language detected` ,'#32CD32');
+                window.editor.session.setMode("ace/mode/" + extension);
+                sessionStorage.setItem('currentLang',lang);
+                document.querySelector('#languages').value = lang;
+                window.editor.setValue(fr.result) ;
+            }
+            else {
+                showToast(`Invalid file extension` ,'red');
+            }
+        }
     })
-
-    fr.readAsText(event.target.files[0]);
+    if(event.target.files.length === 1) {
+        fName = event.target.files[0].name ;
+        fr.readAsText(event.target.files[0]);
+    }
 }
 
 function download(id) {

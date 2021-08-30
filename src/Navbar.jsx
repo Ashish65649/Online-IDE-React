@@ -46,8 +46,8 @@ function getCode() {
         'versionIndex' : version,
         'stdin' : input
     }
-
-    fetch('https://online-code-runner.herokuapp.com/submit' , {
+    
+    fetch('https://https://onlinecode-runner.herokuapp.com/submit' , {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',

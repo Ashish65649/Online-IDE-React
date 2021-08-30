@@ -47,7 +47,7 @@ function getCode() {
         'stdin' : input
     }
     
-    fetch('https://https://onlinecode-runner.herokuapp.com/submit' , {
+    fetch('https://mycode-runner.herokuapp.com/submit' , {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',

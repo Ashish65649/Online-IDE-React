@@ -78,6 +78,7 @@ function Navbar() {
          editor.setShowPrintMargin(false);
          editor.setTheme("ace/theme/monokai");
          editor.session.setMode("ace/mode/c_cpp");
+         window.editor = editor;
             
         setInterval(() => {
             let obj = document.querySelector('#languages');
@@ -99,7 +100,6 @@ function Navbar() {
                 setValue(sessionStorage.getItem('font'));
                 font(sessionStorage.getItem('font')/16);
             }
-                 console.log(window);
             window.editor.session.setMode("ace/mode/" + v);
             document.querySelector('#languages').value = sessionStorage.getItem('currentLang');
             window.editor.setValue(sessionStorage.getItem(sessionStorage.getItem('currentLang')));
@@ -107,7 +107,6 @@ function Navbar() {
         else {
             sessionStorage.setItem('c',c);
             sessionStorage.setItem('currentLang', 'c');
-            console.log(window);
             window.editor.setValue(sessionStorage.getItem(sessionStorage.getItem('currentLang')));
         }
     } , []);

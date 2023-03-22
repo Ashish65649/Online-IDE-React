@@ -74,8 +74,11 @@ function Navbar() {
 
     useEffect(() => {
         setInterval(() => {
-            let currLang = document.querySelector('#languages').value ;
-            sessionStorage.setItem(currLang,window.editor.getSession().getValue());
+            let obj = document.querySelector('#languages');
+            if (obj != null) {
+                let currLang = document.querySelector('#languages').value ;
+                sessionStorage.setItem(currLang,window.editor.getSession().getValue());       
+            }
         } , 500);
 
         if(sessionStorage.getItem('currentLang') != null) {

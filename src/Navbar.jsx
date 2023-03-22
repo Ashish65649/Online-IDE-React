@@ -74,7 +74,7 @@ function Navbar() {
 
     useEffect(() => {
         
-         editor = ace.edit("editor");
+         let editor = window.ace.edit("editor");
          editor.setShowPrintMargin(false);
          editor.setTheme("ace/theme/monokai");
          editor.session.setMode("ace/mode/c_cpp");

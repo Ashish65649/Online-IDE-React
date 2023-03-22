@@ -93,6 +93,7 @@ function Navbar() {
                 setValue(sessionStorage.getItem('font'));
                 font(sessionStorage.getItem('font')/16);
             }
+                 console.log(window);
             window.editor.session.setMode("ace/mode/" + v);
             document.querySelector('#languages').value = sessionStorage.getItem('currentLang');
             window.editor.setValue(sessionStorage.getItem(sessionStorage.getItem('currentLang')));

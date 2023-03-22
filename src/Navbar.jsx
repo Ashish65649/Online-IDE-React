@@ -100,6 +100,7 @@ function Navbar() {
         else {
             sessionStorage.setItem('c',c);
             sessionStorage.setItem('currentLang', 'c');
+            console.log(window);
             window.editor.setValue(sessionStorage.getItem(sessionStorage.getItem('currentLang')));
         }
     } , []);

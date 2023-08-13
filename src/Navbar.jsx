@@ -47,7 +47,7 @@ function getCode() {
         'stdin' : input
     }
     
-    fetch('https://13.235.80.28:8080/submit' , {
+    fetch('http://13.235.80.28:8080/submit' , {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
